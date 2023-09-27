@@ -1,0 +1,30 @@
+       
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Website B</title>
+</head>
+<body>
+  <h1>Website B</h1>
+  
+  <div id="formData">
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+
+        // Perform any necessary processing with the form data
+
+        // Example: Save the data to a file
+        $file = fopen("form-data.txt", "a");
+        fwrite($file, "Name: $name, Email: $email\n");
+        fclose($file);
+
+        echo "<p>Name: $name</p>";
+        echo "<p>Email: $email</p>";
+    }
+    ?>
+  </div>
+</body>
+</html>
